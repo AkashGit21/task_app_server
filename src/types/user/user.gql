@@ -1,5 +1,5 @@
 type User {
-  _id: ID!
+  id: ID!
   username: String!
   email: String!
 }
@@ -11,7 +11,6 @@ input NewUserInput {
 } 
 
 extend type Query {
-  q1: String!
   viewUser(id: ID!): User!
   allUsers: [User!]!
 }
