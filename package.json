@@ -1,0 +1,25 @@
+{
+  "name": "task_app_server",
+  "version": "1.0.0",
+  "description": "This is the backend for the Task App.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkashGit21/task_app_server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkashGit21/task_app_server/issues"
+  },
+  "homepage": "https://github.com/AkashGit21/task_app_server#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "apollo-server": "^2.21.0"
+  }
+}
