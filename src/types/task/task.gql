@@ -1,0 +1,19 @@
+type Task {
+  _id: ID!
+  description: String!
+  title: String!
+}
+
+input NewTaskInput {
+  description: String!
+  title: String!
+} 
+
+extend type Query {
+  myTasks(id: ID!): [Task!]!
+  allTasks: [Task!]!
+}
+
+extend type Mutation {
+  addTask(input: NewTaskInput!): Boolean!
+}

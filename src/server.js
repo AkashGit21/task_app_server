@@ -1,12 +1,23 @@
 const { ApolloServer } = require('apollo-server')
+const { merge } = require('lodash');
+const loadTypeSchema = require('./schema');
 
-const schema = require('./schema')
 const resolvers = require('./resolvers')
 
 const startServer = async () => {
 
+  const types = ['user', 'task', 'channel' ];
+
+  const rootSchema = `
+    schema {
+      query: Query,
+      mutation: Mutation
+    }
+  `
+  const schemaTypes = await Promise.all(types.map(loadTypeSchema))
+
   const server = await new ApolloServer({
-    typeDefs: schema ,
+    typeDefs: [rootSchema, ...schemaTypes],
     resolvers: resolvers,
   });
 

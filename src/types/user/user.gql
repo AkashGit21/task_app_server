@@ -1,0 +1,21 @@
+type User {
+  _id: ID!
+  username: String!
+  email: String!
+}
+
+input NewUserInput {
+  username: String!
+  email: String!
+  password: String!
+} 
+
+extend type Query {
+  q1: String!
+  viewUser(id: ID!): User!
+  allUsers: [User!]!
+}
+
+extend type Mutation {
+  addUser(input: NewUserInput!): Boolean!
+}

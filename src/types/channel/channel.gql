@@ -1,0 +1,24 @@
+type Group {
+  isGroup: Boolean!
+  name: String
+  admin: [ID]
+}
+
+type Channel {
+  _id: ID!
+  name: String
+  group: Group!
+}
+
+input NewChannelInput {
+  name: String
+} 
+
+type Query {
+  viewChannel(id: ID!): Channel!
+  myChannels: [Channel!]!
+}
+
+type Mutation {
+  createChannel(input: NewChannelInput!): Boolean!
+}
