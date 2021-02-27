@@ -1,9 +1,11 @@
 const { ApolloServer } = require('apollo-server')
 const { merge } = require('lodash');
-const loadTypeSchema = require('./schema');
 
-const resolvers = require('./resolvers');
+const loadTypeSchema = require('./schema');
 const connectDB = require('./db');
+const user = require('./types/user/user.resolvers')
+const task = require('./types/task/task.resolvers')
+const channel = require('./types/channel/channel.resolvers')
 
 const startServer = async () => {
 
@@ -19,7 +21,7 @@ const startServer = async () => {
 
   const server = await new ApolloServer({
     typeDefs: [rootSchema, ...schemaTypes],
-    resolvers: resolvers,
+    resolvers: merge({}, user, task, channel),    
   });
 
   connectDB()

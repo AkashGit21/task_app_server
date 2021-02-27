@@ -15,7 +15,6 @@ input NewChannelInput {
 } 
 
 type Query {
-  viewChannel(id: ID!): Channel!
   myChannels: [Channel!]!
 }
 

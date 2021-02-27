@@ -10,7 +10,7 @@ input NewTaskInput {
 } 
 
 extend type Query {
-  myTasks(id: ID!): [Task!]!
+  channelTasks(id: ID!): [Task!]!
   allTasks: [Task!]!
 }
 
